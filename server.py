@@ -16,9 +16,9 @@ app.add_middleware(
 )
 
 # Load ML assets
-model = joblib.load("best_model.joblib")
-scaler = joblib.load("scaler.joblib")
-encoder = joblib.load("label_encoder.joblib")
+model = joblib.load("./Speech-Recognition/models_output/best_model.joblib")
+scaler = joblib.load("./Speech-Recognition/models_output/scaler.joblib")
+encoder = joblib.load("./Speech-Recognition/models_output/label_encoder.joblib")
 
 latest_prediction = "none"
 

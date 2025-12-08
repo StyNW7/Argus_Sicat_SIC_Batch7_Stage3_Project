@@ -1,0 +1,73 @@
+<!-- test_ui.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Audio Model Tester</title>
+</head>
+<body>
+    <h1>Audio Model Testing Interface</h1>
+    
+    <div>
+        <h3>Current Prediction</h3>
+        <p id="latestPred">Loading...</p>
+        <button onclick="getLatest()">Refresh</button>
+    </div>
+    
+    <hr>
+    
+    <div>
+        <h3>Upload Audio for Testing</h3>
+        <input type="file" id="audioFile" accept=".wav,.mp3,.m4a">
+        <button onclick="uploadAudio()">Upload & Predict</button>
+        <p id="result"></p>
+    </div>
+    
+    <script>
+        const API_URL = 'http://localhost:5000';
+        
+        async function getLatest() {
+            try {
+                const response = await fetch(`${API_URL}/latest`);
+                const data = await response.json();
+                document.getElementById('latestPred').textContent = 
+                    `Label: ${data.label} | Time: ${new Date(data.timestamp * 1000).toLocaleTimeString()}`;
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+        
+        async function uploadAudio() {
+            const fileInput = document.getElementById('audioFile');
+            if (!fileInput.files[0]) {
+                alert('Please select an audio file');
+                return;
+            }
+            
+            const formData = new FormData();
+            formData.append('file', fileInput.files[0]);
+            
+            try {
+                const response = await fetch(`${API_URL}/upload`, {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                document.getElementById('result').textContent = 
+                    result.status === 'ok' 
+                    ? `Prediction: ${result.prediction}`
+                    : `Error: ${result.msg}`;
+                
+                // Refresh latest prediction
+                getLatest();
+            } catch (error) {
+                console.error('Upload error:', error);
+                document.getElementById('result').textContent = 'Upload failed';
+            }
+        }
+        
+        // Load initial prediction
+        getLatest();
+    </script>
+</body>
+</html>
