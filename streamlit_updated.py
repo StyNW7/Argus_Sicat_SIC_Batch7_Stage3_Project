@@ -49,7 +49,7 @@ st.markdown("""
         margin-bottom: 1rem;
     }
     .metric-card {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #1e3a8a 0%, #dc2626 100%);
         padding: 20px;
         border-radius: 10px;
         color: white;
@@ -63,7 +63,7 @@ st.markdown("""
         box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
     .safe-card {
-        background: linear-gradient(135deg, #4ade80 0%, #22d3ee 100%);
+        background: linear-gradient(135deg, #06b6d4 0%, #db2777 100%);
         padding: 15px;
         border-radius: 10px;
         color: white;
@@ -863,15 +863,15 @@ def main():
             st.session_state.last_audio_prediction = {"label": "none", "timestamp": time.time()}
             st.session_state.last_vision_prediction = {"label": "none", "timestamp": time.time()}
             st.session_state.vision_metrics = {
-                'focus': 85,
-                'gaze_off': 5,
-                'head_down': 3,
-                'face_not_detected': 1
+                'focus': 0,
+                'gaze_off': 0,
+                'head_down': 0,
+                'face_not_detected': 0
             }
             st.session_state.audio_metrics = {
-                'silence': 70,
-                'whispering': 15,
-                'conversation': 15
+                'silence': 0,
+                'whispering': 0,
+                'conversation': 0
             }
             st.rerun()
     
@@ -895,7 +895,7 @@ def main():
     st.markdown("---")
     st.markdown("""
     <div style="text-align: center; color: gray; padding: 20px;">
-        <p>👁️ <strong>Argus - Integrity Through Intelligent Vision</strong></p>
+        <p><strong>Argus - Integrity Through Intelligent Vision</strong></p>
         <p>Samsung Innovation Campus Batch 7 Stage 3 | Team Sicat</p>
         <p>© 2025 BINUS UNIVERSITY. All rights reserved.</p>
     </div>
