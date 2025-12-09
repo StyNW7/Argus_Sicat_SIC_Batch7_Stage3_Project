@@ -5,6 +5,8 @@ train_and_evaluate_full.py
 Usage:
 python train_and_evaluate_full.py --csv audio_dataset.csv --out_dir models_output
 
+python train_and_evaluate_full.py --csv audio_dataset_final.csv --out_dir models_output_final
+
 What it does:
 - Loads CSV having columns: timestamp,rms,zcr,spectral_centroid,label,mfcc_1..mfcc_13
 - Preprocess (drop timestamp, scale features, encode labels)
