@@ -383,16 +383,16 @@ def main():
         st.session_state.last_vision_prediction = {"label": "none", "timestamp": time.time()}
     if 'vision_metrics' not in st.session_state:
         st.session_state.vision_metrics = {
-            'focus': 85,
-            'gaze_off': 5,
-            'head_down': 3,
-            'face_not_detected': 1
+            'focus': 0,
+            'gaze_off': 0,
+            'head_down': 0,
+            'face_not_detected': 0
         }
     if 'audio_metrics' not in st.session_state:
         st.session_state.audio_metrics = {
-            'silence': 70,
-            'whispering': 15,
-            'conversation': 15
+            'silence': 0,
+            'whispering': 0,
+            'conversation': 0
         }
     if 'alerts' not in st.session_state:
         st.session_state.alerts = []
