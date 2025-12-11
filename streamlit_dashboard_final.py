@@ -570,7 +570,7 @@ def main():
             frame = st.session_state.video_streamer.get_frame()
             if frame is not None:
                 # Display frame
-                frame_placeholder.image(frame, channels="RGB", use_column_width=True)
+                frame_placeholder.image(frame, channels="RGB", use_container_width=True)
                 
                 # Send frame to FastAPI for vision prediction
                 with st.spinner("Analyzing video..."):
