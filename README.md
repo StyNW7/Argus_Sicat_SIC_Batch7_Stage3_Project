@@ -171,6 +171,12 @@ Clone the GitHub Repository then follow this documentation
 2. streamlit run streamlit_dashboard_final.py to run the final version of Streamlit Dashboard.
 3. Make sure the FastAPI Server already run to test the Speech and Vision Module on the Dashboard.
 
+### IoT .ino Code
+
+1. Change directory to the IoT Folder.
+2. There are 2 main files for the IoT which are: esp32_cam.ino and esp32_mic_led_buzzer.ino.
+3. You can copy the code and use it in the Arduino IDE.
+
 ---
 
 ## 📸 &nbsp;Result Preview
